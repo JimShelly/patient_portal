@@ -1,0 +1,54 @@
+{
+  "configurations": [
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "patient_portal_api:HelloWorldFunction (nodejs14.x)",
+      "invokeTarget": {
+        "target": "template",
+        "templatePath": "${workspaceFolder}/patient_portal_api/template.yaml",
+        "logicalId": "HelloWorldFunction"
+      },
+      "lambda": {
+        "payload": {},
+        "environmentVariables": {},
+        "runtime": "nodejs14.x"
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "API patient_portal_api:HelloWorldFunction (nodejs14.x)",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "${workspaceFolder}/patient_portal_api/template.yaml",
+        "logicalId": "HelloWorldFunction"
+      },
+      "api": {
+        "path": "/hello",
+        "httpMethod": "get",
+        "payload": {
+          "json": {}
+        }
+      },
+      "lambda": {
+        "runtime": "nodejs14.x"
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "serverless-api-cdk-getAllItems7DBFD880-1XzjP3y0lFEg:src/handlers/get-all-items.getAllItemsHandler (nodejs14.x)",
+      "invokeTarget": {
+        "target": "code",
+        "projectRoot": "${workspaceFolder}/serverless-api-cdk-getAllItems7DBFD880-1XzjP3y0lFEg",
+        "lambdaHandler": "src/handlers/get-all-items.getAllItemsHandler"
+      },
+      "lambda": {
+        "runtime": "nodejs14.x",
+        "payload": {},
+        "environmentVariables": {}
+      }
+    }
+  ]
+}
